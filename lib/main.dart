@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.indigo,
-        useMaterial3: true,
       ),
       home: const HomeScreen(),
     );
@@ -31,36 +30,6 @@ class HomeScreen extends StatelessWidget {
         title: const Text('CINEJC - Panel Principal'),
         backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
-        elevation: 2,
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            UserAccountsDrawerHeader(
-              accountName: const Text('Usuario CINEJC'),
-              accountDescription: const Text('sistema@cinejc.com'),
-              currentAccountPicture: const CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Text(
-                  'CJ',
-                  style: TextStyle(fontSize: 24.0, color: Colors.indigo),
-                ),
-              ),
-              decoration: const BoxDecoration(color: Colors.indigo),
-            ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Inicio'),
-              onTap: () => Navigator.pop(context),
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Configuración'),
-              onTap: () => Navigator.pop(context),
-            ),
-          ],
-        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -70,40 +39,39 @@ class HomeScreen extends StatelessWidget {
             const Text(
               '¡Bienvenido de nuevo!',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
-                color: Colors.black87,
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 6),
             const Text(
-              'Selecciona una opción para comenzar a gestionar tus registros.',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
+              'Selecciona una opción para comenzar:',
+              style: TextStyle(fontSize: 14, color: Colors.grey),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
             Expanded(
               child: GridView.count(
                 crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                children: [
+                crossAxisSpacing: 12,
+                mainAxisSpacing: 12,
+                children: const [
                   DashboardCard(
                     icon: Icons.people,
-                    title: 'Clientes / Cuentas',
-                    color: Colors.blueAccent,
+                    title: 'Clientes',
+                    color: Colors.blue,
                   ),
                   DashboardCard(
-                    icon: Icons.monetization_on,
+                    icon: Icons.attach_money,
                     title: 'Cobros',
                     color: Colors.green,
                   ),
                   DashboardCard(
-                    icon: Icons.analytics,
+                    icon: Icons.bar_chart,
                     title: 'Reportes',
                     color: Colors.orange,
                   ),
                   DashboardCard(
-                    icon: Icons.folder_shared,
+                    icon: Icons.folder,
                     title: 'Registros',
                     color: Colors.purple,
                   ),
@@ -112,13 +80,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Acción rápida
-        },
-        backgroundColor: Colors.indigo,
-        child: const Icon(Icons.add, color: Colors.white),
       ),
     );
   }
@@ -139,33 +100,22 @@ class DashboardCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 3,
       child: InkWell(
         onTap: () {},
-        borderRadius: BorderRadius.circular(16),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 28,
-                backgroundColor: color.withOpacity(0.2),
-                child: Icon(icon, size: 32, color: color),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 40, color: color),
+            const SizedBox(height: 12),
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
               ),
-              const SizedBox(height: 16),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
