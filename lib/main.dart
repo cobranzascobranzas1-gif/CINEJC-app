@@ -37,17 +37,17 @@ class HomeScreen extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const UserAccountsDrawerHeader(
-              accountName: Text('Usuario CINEJC'),
-              accountDescription: Text('sistema@cinejc.com'),
-              currentAccountPicture: CircleAvatar(
+            UserAccountsDrawerHeader(
+              accountName: const Text('Usuario CINEJC'),
+              accountDescription: const Text('sistema@cinejc.com'),
+              currentAccountPicture: const CircleAvatar(
                 backgroundColor: Colors.white,
                 child: Text(
                   'CJ',
                   style: TextStyle(fontSize: 24.0, color: Colors.indigo),
                 ),
               ),
-              decoration: BoxDecoration(color: Colors.indigo),
+              decoration: const BoxDecoration(color: Colors.indigo),
             ),
             ListTile(
               leading: const Icon(Icons.home),
@@ -86,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                 crossAxisCount: 2,
                 crossAxisSpacing: 16,
                 mainAxisSpacing: 16,
-                children: const [
+                children: [
                   DashboardCard(
                     icon: Icons.people,
                     title: 'Clientes / Cuentas',
@@ -115,7 +115,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Acción de agregar rápido
+          // Acción rápida
         },
         backgroundColor: Colors.indigo,
         child: const Icon(Icons.add, color: Colors.white),
