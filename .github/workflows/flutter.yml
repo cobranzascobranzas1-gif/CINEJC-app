@@ -24,7 +24,7 @@ jobs:
           channel: 'stable'
 
       - name: Generar archivos nativos de Android automáticamente
-        run: flutter create --platforms android .
+        run: flutter create --platforms android --project-name cinejc_app .
 
       - name: Instalar dependencias
         run: flutter pub get
